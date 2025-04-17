@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Assistant Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to your Email Assistant</h1>
+    <form action="{{ url_for('summarize_emails') }}" method="post">
+        <label for="filter">Choose emails to summarize:</label>
+        <select name="filter" id="filter">
+            <option value="unread">Unread</option>
+            <option value="read">Read</option>
+            <option value="important">Important</option>
+            <option value="all">All</option>
+        </select>
+
+        <label for="count">How many emails?</label>
+        <select name="count" id="count">
+            {% for i in range(5, 51, 5) %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Summarize</button>
+    </form>
+
+    <p>More features coming soon!</p>
+</body>
+</html>
